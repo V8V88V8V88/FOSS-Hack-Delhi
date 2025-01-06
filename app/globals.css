@@ -25,3 +25,10 @@ html {
   max-width: none;
 }
 
+/* Add smooth backdrop blur effect */
+@supports (backdrop-filter: blur(4px)) {
+  .bg-white\/50 {
+    backdrop-filter: blur(4px);
+  }
+}
+
