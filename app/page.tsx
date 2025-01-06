@@ -90,7 +90,7 @@ export default function Home() {
             >
               <div className="flex items-center gap-3">
                 <Calendar className="w-6 h-6 text-[#1a1a1a]" />
-                <span>March 15-16, 2025</span>
+                <span>February 22-23, 2025</span>
               </div>
               <div className="hidden sm:block text-2xl">•</div>
               <div className="flex items-center gap-3">
