@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import Link from 'next/link'
 import { ArrowRight, Calendar, MapPin, Users } from 'lucide-react'
+import { GeometricShapes } from '@/components/geometric-shapes'
 
 const BlurElement = ({ className }: { className: string }) => (
   <motion.div
@@ -56,15 +57,13 @@ const AnimatedTitle = ({ children }: { children: React.ReactNode }) => {
 export default function Home() {
   return (
     <div className="bg-white text-[#1a1a1a] text-lg relative overflow-hidden">
-      {/* Subtle tri-color blur elements with reduced opacity */}
-      <BlurElement className="bg-[#4AE54A] w-[800px] h-[800px] -top-[400px] -left-[300px] opacity-[0.04]" />
-      <BlurElement className="bg-[#2563EB] w-[600px] h-[600px] top-[30%] -right-[200px] opacity-[0.04]" />
-      <BlurElement className="bg-[#60A5FA] w-[700px] h-[700px] bottom-0 left-1/2 -translate-x-1/2 opacity-[0.04]" />
+      {/* Even more subtle blur elements */}
+      <BlurElement className="bg-[#4AE54A] w-[800px] h-[800px] -top-[400px] -left-[300px] opacity-[0.02]" />
+      <BlurElement className="bg-[#2563EB] w-[600px] h-[600px] top-[30%] -right-[200px] opacity-[0.02]" />
+      <BlurElement className="bg-[#60A5FA] w-[700px] h-[700px] bottom-0 left-1/2 -translate-x-1/2 opacity-[0.02]" />
       
-      {/* Additional ambient blur elements with reduced opacity */}
-      <BlurElement className="bg-[#4AE54A] w-[400px] h-[400px] top-[60%] left-[10%] opacity-[0.03]" />
-      <BlurElement className="bg-[#60A5FA] w-[300px] h-[300px] top-[20%] left-[50%] opacity-[0.03]" />
-      <BlurElement className="bg-[#2563EB] w-[500px] h-[500px] bottom-[10%] right-[5%] opacity-[0.03]" />
+      {/* Geometric shapes */}
+      <GeometricShapes />
 
       <Section id="register">
         <div className="text-center max-w-5xl mx-auto relative z-10">
@@ -83,14 +82,14 @@ export default function Home() {
               FOSS Hack 2025
             </motion.h1>
             <motion.div 
-              className="flex flex-col sm:flex-row items-center justify-center gap-6 text-xl text-[#1a1a1a]/70"
+              className="flex flex-col sm:flex-row items-center justify-center gap-6 text-xl text-[#1a1a1a]/60"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 1 }}
             >
               <div className="flex items-center gap-3">
                 <Calendar className="w-6 h-6 text-[#1a1a1a]" />
-                <span>March 15-16, 2025</span>
+                <span>February 22-23, 2025</span>
               </div>
               <div className="hidden sm:block text-2xl">•</div>
               <div className="flex items-center gap-3">
@@ -113,7 +112,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto relative z-10">
           <AnimatedTitle>Hackathon Rules</AnimatedTitle>
           <motion.div 
-            className="space-y-8 text-xl text-[#1a1a1a]/70"
+            className="space-y-8 text-xl text-[#1a1a1a]/60"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 1, ease: [0.6, -0.05, 0.01, 0.99] }}
@@ -143,7 +142,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto relative z-10">
           <AnimatedTitle>Code of Conduct</AnimatedTitle>
           <motion.div 
-            className="prose prose-xl text-[#1a1a1a]/70"
+            className="prose prose-xl text-[#1a1a1a]/60"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 1, ease: [0.6, -0.05, 0.01, 0.99] }}
@@ -229,7 +228,7 @@ export default function Home() {
             transition={{ delay: 0.2, duration: 1, ease: [0.6, -0.05, 0.01, 0.99] }}
           >
             {[
-              "Aruli", "Ashwany", "Diksha", "Diti",
+              "Vaibhav", "Aruli", "Ashwany", "Diksha", "Diti",
               "Eirtty", "Gautam", "Harshvardhan", "Jayesh",
               "Nishchal", "Riyansh", "Sachin", "Satyam",
               "Shreshth", "Srijan", "Suryansh", "Tiya",
@@ -261,7 +260,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto relative z-10">
           <AnimatedTitle>About FOSS Hack</AnimatedTitle>
           <motion.div 
-            className="prose prose-xl text-[#1a1a1a]/70"
+            className="prose prose-xl text-[#1a1a1a]/60"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 1, ease: [0.6, -0.05, 0.01, 0.99] }}
