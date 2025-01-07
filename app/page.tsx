@@ -90,7 +90,7 @@ export default function Home() {
             >
               <div className="flex items-center gap-3">
                 <Calendar className="w-6 h-6 text-[#1a1a1a]" />
-                <span>February 22-23, 2025</span>
+                <span>March 15-16, 2025</span>
               </div>
               <div className="hidden sm:block text-2xl">•</div>
               <div className="flex items-center gap-3">
@@ -98,17 +98,13 @@ export default function Home() {
                 <span>Delhi/NCR</span>
               </div>
             </motion.div>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <Link 
+              href="https://fossunited.org/dashboard/register-for-hackathon?id=o312an73dc"
               className="inline-flex items-center gap-3 bg-[#1a1a1a] text-white px-10 py-5 rounded-full text-xl font-medium hover:bg-black transition-colors duration-300"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 1 }}
             >
               Register Now
               <ArrowRight className="w-6 h-6" />
-            </motion.button>
+            </Link>
           </motion.div>
         </div>
       </Section>
@@ -186,10 +182,21 @@ export default function Home() {
             transition={{ delay: 0.2, duration: 1, ease: [0.6, -0.05, 0.01, 0.99] }}
           >
             {[
-              { title: "Discord Community", desc: "Join our community for updates and discussions" },
-              { title: "GitHub Repository", desc: "Access resources and submit your projects" },
-              { title: "Schedule", desc: "View the complete event timeline" },
-              { title: "Resources", desc: "Helpful tools and documentation" },
+              { 
+                title: "Discord Community", 
+                desc: "Join our community for updates and discussions",
+                url: "https://discord.gg/Dxwx99RJKH"
+              },
+              { 
+                title: "GitHub", 
+                desc: "Access our code repositories",
+                url: "https://github.com/thefossclub"
+              },
+              { 
+                title: "Telegram", 
+                desc: "Join our Telegram group",
+                url: "https://t.me/TheFOSSClub"
+              },
             ].map((link, index) => (
               <motion.div
                 key={link.title}
@@ -198,7 +205,7 @@ export default function Home() {
                 transition={{ delay: 0.1 * index, duration: 0.8 }}
               >
                 <Link 
-                  href="#" 
+                  href={link.url}
                   className="p-8 rounded-xl border-2 border-[#1a1a1a]/10 hover:border-[#1a1a1a]/20 transition-colors block group bg-white/50"
                 >
                   <h3 className="text-2xl font-semibold mb-3 text-[#1a1a1a] group-hover:text-[#1a1a1a] transition-colors">
@@ -221,7 +228,10 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 1, ease: [0.6, -0.05, 0.01, 0.99] }}
           >
-            {[1, 2, 3, 4, 5, 6].map((i) => (
+            {[
+              "Aruli", "Ashwany", "Diksha",
+              "Gautam", "Harshvardhan", "Jayesh"
+            ].map((name, i) => (
               <motion.div 
                 key={i} 
                 className="text-center"
@@ -236,8 +246,8 @@ export default function Home() {
                 >
                   <Users className="w-12 h-12 text-[#1a1a1a]" />
                 </motion.div>
-                <h3 className="text-2xl font-medium mb-2 text-[#1a1a1a]">Organizer {i}</h3>
-                <p className="text-xl text-[#1a1a1a]/70">Role</p>
+                <h3 className="text-2xl font-medium mb-2 text-[#1a1a1a]">{name}</h3>
+                <p className="text-xl text-[#1a1a1a]/70">Organizer</p>
               </motion.div>
             ))}
           </motion.div>
