@@ -13,9 +13,12 @@ interface ShapeProps {
 }
 
 function useWindowSize() {
-  const [windowSize, setWindowSize] = useState({
-    width: undefined,
-    height: undefined,
+  const [windowSize, setWindowSize] = useState<{
+    width: number;
+    height: number;
+  }>({
+    width: typeof window !== 'undefined' ? window.innerWidth : 1920,
+    height: typeof window !== 'undefined' ? window.innerHeight : 1080,
   });
 
   useEffect(() => {
@@ -26,10 +29,12 @@ function useWindowSize() {
       });
     }
     
-    window.addEventListener("resize", handleResize);
-    handleResize();
-    
-    return () => window.removeEventListener("resize", handleResize);
+    if (typeof window !== 'undefined') {
+      window.addEventListener("resize", handleResize);
+      handleResize();
+      
+      return () => window.removeEventListener("resize", handleResize);
+    }
   }, []);
 
   return windowSize;
