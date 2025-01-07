@@ -56,15 +56,15 @@ const AnimatedTitle = ({ children }: { children: React.ReactNode }) => {
 export default function Home() {
   return (
     <div className="bg-white text-[#1a1a1a] text-lg relative overflow-hidden">
-      {/* Subtle tri-color blur elements */}
-      <BlurElement className="bg-[#4AE54A] w-[800px] h-[800px] -top-[400px] -left-[300px] opacity-[0.07]" />
-      <BlurElement className="bg-[#2563EB] w-[600px] h-[600px] top-[30%] -right-[200px] opacity-[0.07]" />
-      <BlurElement className="bg-[#60A5FA] w-[700px] h-[700px] bottom-0 left-1/2 -translate-x-1/2 opacity-[0.07]" />
+      {/* Subtle tri-color blur elements with reduced opacity */}
+      <BlurElement className="bg-[#4AE54A] w-[800px] h-[800px] -top-[400px] -left-[300px] opacity-[0.04]" />
+      <BlurElement className="bg-[#2563EB] w-[600px] h-[600px] top-[30%] -right-[200px] opacity-[0.04]" />
+      <BlurElement className="bg-[#60A5FA] w-[700px] h-[700px] bottom-0 left-1/2 -translate-x-1/2 opacity-[0.04]" />
       
-      {/* Additional ambient blur elements for depth */}
-      <BlurElement className="bg-[#4AE54A] w-[400px] h-[400px] top-[60%] left-[10%] opacity-[0.05]" />
-      <BlurElement className="bg-[#60A5FA] w-[300px] h-[300px] top-[20%] left-[50%] opacity-[0.05]" />
-      <BlurElement className="bg-[#2563EB] w-[500px] h-[500px] bottom-[10%] right-[5%] opacity-[0.05]" />
+      {/* Additional ambient blur elements with reduced opacity */}
+      <BlurElement className="bg-[#4AE54A] w-[400px] h-[400px] top-[60%] left-[10%] opacity-[0.03]" />
+      <BlurElement className="bg-[#60A5FA] w-[300px] h-[300px] top-[20%] left-[50%] opacity-[0.03]" />
+      <BlurElement className="bg-[#2563EB] w-[500px] h-[500px] bottom-[10%] right-[5%] opacity-[0.03]" />
 
       <Section id="register">
         <div className="text-center max-w-5xl mx-auto relative z-10">
@@ -220,17 +220,20 @@ export default function Home() {
       </Section>
 
       <Section id="team">
-        <div className="max-w-5xl mx-auto relative z-10">
+        <div className="max-w-6xl mx-auto relative z-10">
           <AnimatedTitle>Organizing Team</AnimatedTitle>
           <motion.div 
-            className="grid grid-cols-2 sm:grid-cols-3 gap-12"
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 1, ease: [0.6, -0.05, 0.01, 0.99] }}
           >
             {[
-              "Aruli", "Ashwany", "Diksha",
-              "Gautam", "Harshvardhan", "Jayesh"
+              "Aruli", "Ashwany", "Diksha", "Diti",
+              "Eirtty", "Gautam", "Harshvardhan", "Jayesh",
+              "Nishchal", "Riyansh", "Sachin", "Satyam",
+              "Shreshth", "Srijan", "Suryansh", "Tiya",
+              "Vanya", "Vinay", "Lovish"
             ].map((name, i) => (
               <motion.div 
                 key={i} 
@@ -240,14 +243,14 @@ export default function Home() {
                 transition={{ delay: 0.1 * i, duration: 0.8 }}
               >
                 <motion.div 
-                  className="w-32 h-32 mx-auto mb-6 rounded-full bg-[#1a1a1a]/5 flex items-center justify-center"
+                  className="w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-4 rounded-full bg-[#1a1a1a]/5 flex items-center justify-center"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Users className="w-12 h-12 text-[#1a1a1a]" />
+                  <Users className="w-10 h-10 text-[#1a1a1a]" />
                 </motion.div>
-                <h3 className="text-2xl font-medium mb-2 text-[#1a1a1a]">{name}</h3>
-                <p className="text-xl text-[#1a1a1a]/70">Organizer</p>
+                <h3 className="text-xl sm:text-2xl font-medium mb-1 text-[#1a1a1a]">{name}</h3>
+                <p className="text-base sm:text-lg text-[#1a1a1a]/60">Organizer</p>
               </motion.div>
             ))}
           </motion.div>

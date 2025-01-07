@@ -11,6 +11,7 @@ body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
   overflow-x: hidden;
+  letter-spacing: -0.02em;
 }
 
 html {
@@ -25,7 +26,11 @@ html {
   max-width: none;
 }
 
-/* Add smooth backdrop blur effect */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 @supports (backdrop-filter: blur(4px)) {
   .bg-white\/50 {
     backdrop-filter: blur(4px);
