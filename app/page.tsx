@@ -4,7 +4,13 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import Link from 'next/link'
 import { ArrowRight, Calendar, MapPin, Users } from 'lucide-react'
+import { Suspense } from 'react'
+import dynamic from 'next/dynamic'
 import { GeometricShapes } from '@/components/geometric-shapes'
+
+const DynamicGeometricShapes = dynamic(() => import('@/components/geometric-shapes').then(mod => mod.GeometricShapes), {
+  ssr: false
+})
 
 const BlurElement = ({ className }: { className: string }) => (
   <motion.div

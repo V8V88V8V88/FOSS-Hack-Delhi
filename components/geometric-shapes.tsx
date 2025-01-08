@@ -14,11 +14,11 @@ interface ShapeProps {
 
 function useWindowSize() {
   const [windowSize, setWindowSize] = useState<{
-    width: number;
-    height: number;
+    width: number | undefined;
+    height: number | undefined;
   }>({
-    width: typeof window !== 'undefined' ? window.innerWidth : 1920,
-    height: typeof window !== 'undefined' ? window.innerHeight : 1080,
+    width: undefined,
+    height: undefined,
   });
 
   useEffect(() => {
@@ -29,12 +29,10 @@ function useWindowSize() {
       });
     }
     
-    if (typeof window !== 'undefined') {
-      window.addEventListener("resize", handleResize);
-      handleResize();
-      
-      return () => window.removeEventListener("resize", handleResize);
-    }
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return windowSize;
@@ -82,6 +80,16 @@ const Shape = ({ color, size, initialX, initialY, scrollMultiplier = 1, blur = f
 }
 
 export const GeometricShapes = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
+
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden">
       <Shape 
