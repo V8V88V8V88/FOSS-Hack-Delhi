@@ -69,7 +69,9 @@ export default function Home() {
       <BlurElement className="bg-[#60A5FA] w-[700px] h-[700px] bottom-0 left-1/2 -translate-x-1/2 opacity-[0.02]" />
       
       {/* Geometric shapes */}
-      <GeometricShapes />
+      <Suspense fallback={<div>Loading...</div>}>
+        <DynamicGeometricShapes />
+      </Suspense>
 
       <Section id="register">
         <div className="text-center max-w-5xl mx-auto relative z-10">
@@ -234,12 +236,27 @@ export default function Home() {
             transition={{ delay: 0.2, duration: 1, ease: [0.6, -0.05, 0.01, 0.99] }}
           >
             {[
-              "Vaibhav", "Aruli", "Ashwany", "Diksha", "Diti",
-              "Eirtty", "Gautam", "Harshvardhan", "Jayesh",
-              "Nishchal", "Riyansh", "Sachin", "Satyam",
-              "Shreshth", "Srijan", "Suryansh", "Tiya",
-              "Vanya", "Vinay", "Lovish"
-            ].map((name, i) => (
+              { name: "Vaibhav", title: "Organizer" }
+              { name: "Arull", title: "Organizer" },
+              { name: "Ashwany", title: "Mentor" },
+              { name: "Diksha", title: "Volunteer" },
+              { name: "Diti", title: "Head" },
+              { name: "Eirtty", title: "Organizer" },
+              { name: "Gautam", title: "Mentor" },
+              { name: "Harshvardhan", title: "Volunteer" },
+              { name: "Jayesh", title: "Head" },
+              { name: "Nishchal", title: "Organizer" },
+              { name: "Riyansh", title: "Mentor" },
+              { name: "Sachin", title: "Volunteer" },
+              { name: "Satyam", title: "Head" },
+              { name: "Shreshth", title: "Organizer" },
+              { name: "Srijan", title: "Mentor" },
+              { name: "Suryansh", title: "Volunteer" },
+              { name: "Tiya", title: "Head" },
+              { name: "Vanya", title: "Organizer" },
+              { name: "Vinay", title: "Mentor" },
+              { name: "Lovish", title: "Volunteer" }
+            ].map((member, i) => (
               <motion.div 
                 key={i} 
                 className="text-center"
@@ -254,7 +271,8 @@ export default function Home() {
                 >
                   <Users className="w-8 h-8 sm:w-10 sm:h-10 text-[#1a1a1a]" />
                 </motion.div>
-                <h3 className="text-lg sm:text-xl font-medium mb-1 text-[#1a1a1a]">{name}</h3>
+                <h3 className="text-lg sm:text-xl font-medium mb-1 text-[#1a1a1a]">{member.name}</h3>
+                <p className="text-sm text-[#1a1a1a]/60">{member.title}</p>
               </motion.div>
             ))}
           </motion.div>
