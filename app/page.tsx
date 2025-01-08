@@ -236,7 +236,7 @@ export default function Home() {
             transition={{ delay: 0.2, duration: 1, ease: [0.6, -0.05, 0.01, 0.99] }}
           >
             {[
-              { name: "Vaibhav", title: "Organizer" }
+              { name: "Vaibhav", title: "Organizer" },
               { name: "Arull", title: "Organizer" },
               { name: "Ashwany", title: "Mentor" },
               { name: "Diksha", title: "Volunteer" },
