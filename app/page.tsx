@@ -220,9 +220,9 @@ export default function Home() {
 
       <Section id="team">
         <div className="max-w-6xl mx-auto relative z-10">
-          <AnimatedTitle>Organizing Team</AnimatedTitle>
+          <AnimatedTitle>Team</AnimatedTitle>
           <motion.div 
-            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8"
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 1, ease: [0.6, -0.05, 0.01, 0.99] }}
@@ -242,14 +242,13 @@ export default function Home() {
                 transition={{ delay: 0.1 * i, duration: 0.8 }}
               >
                 <motion.div 
-                  className="w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-4 rounded-full bg-[#1a1a1a]/5 flex items-center justify-center"
+                  className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4 rounded-full bg-[#1a1a1a]/5 flex items-center justify-center"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Users className="w-10 h-10 text-[#1a1a1a]" />
+                  <Users className="w-8 h-8 sm:w-10 sm:h-10 text-[#1a1a1a]" />
                 </motion.div>
-                <h3 className="text-xl sm:text-2xl font-medium mb-1 text-[#1a1a1a]">{name}</h3>
-                <p className="text-base sm:text-lg text-[#1a1a1a]/60">Organizer</p>
+                <h3 className="text-lg sm:text-xl font-medium mb-1 text-[#1a1a1a]">{name}</h3>
               </motion.div>
             ))}
           </motion.div>
