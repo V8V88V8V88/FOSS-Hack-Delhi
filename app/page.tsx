@@ -6,7 +6,6 @@ import Link from 'next/link'
 import { ArrowRight, Calendar, MapPin, Users } from 'lucide-react'
 import { Suspense } from 'react'
 import dynamic from 'next/dynamic'
-import { GeometricShapes } from '@/components/geometric-shapes'
 
 const DynamicGeometricShapes = dynamic(() => import('@/components/geometric-shapes').then(mod => mod.GeometricShapes), {
   ssr: false
@@ -64,9 +63,10 @@ export default function Home() {
   return (
     <div className="bg-white text-[#1a1a1a] text-lg relative overflow-hidden">
       {/* Even more subtle blur elements */}
-      <BlurElement className="bg-[#4AE54A] w-[800px] h-[800px] -top-[400px] -left-[300px] opacity-[0.02]" />
-      <BlurElement className="bg-[#2563EB] w-[600px] h-[600px] top-[30%] -right-[200px] opacity-[0.02]" />
-      <BlurElement className="bg-[#60A5FA] w-[700px] h-[700px] bottom-0 left-1/2 -translate-x-1/2 opacity-[0.02]" />
+{/* Blur elements with updated colors */}
+      <BlurElement className="bg-[#4AE54A]/40 w-[800px] h-[800px] -top-[400px] -left-[300px] opacity-[0.15]" />
+      <BlurElement className="bg-[#60A5FA]/40 w-[600px] h-[600px] top-[30%] -right-[200px] opacity-[0.15]" />
+      <BlurElement className="bg-[#60A5FA]/40 w-[700px] h-[700px] bottom-0 left-1/2 -translate-x-1/2 opacity-[0.15]" />
       
       {/* Geometric shapes */}
       <Suspense fallback={<div>Loading...</div>}>

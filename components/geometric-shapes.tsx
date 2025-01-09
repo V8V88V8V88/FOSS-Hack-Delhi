@@ -93,7 +93,7 @@ export const GeometricShapes = () => {
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden">
       <Shape 
-        color="bg-blue-400" 
+        color="bg-[#4AE54A]/40" 
         size={80} 
         initialX={10} 
         initialY={15} 
@@ -101,14 +101,14 @@ export const GeometricShapes = () => {
         blur
       />
       <Shape 
-        color="bg-green-400" 
+        color="bg-[#60A5FA]/40" 
         size={60} 
         initialX={85} 
         initialY={25} 
         scrollMultiplier={-0.8}
       />
       <Shape 
-        color="bg-blue-400" 
+        color="bg-[#4AE54A]/40" 
         size={70} 
         initialX={75} 
         initialY={45} 
@@ -116,14 +116,14 @@ export const GeometricShapes = () => {
         blur
       />
       <Shape 
-        color="bg-green-400" 
+        color="bg-[#60A5FA]/40" 
         size={65} 
         initialX={15} 
         initialY={55} 
         scrollMultiplier={-1.2}
       />
       <Shape 
-        color="bg-blue-400" 
+        color="bg-[#4AE54A]/40" 
         size={55} 
         initialX={45} 
         initialY={75} 
@@ -131,21 +131,21 @@ export const GeometricShapes = () => {
         blur
       />
       <Shape 
-        color="bg-green-400" 
+        color="bg-[#60A5FA]/40" 
         size={75} 
         initialX={65} 
         initialY={85} 
         scrollMultiplier={-1}
       />
       <Shape 
-        color="bg-blue-400" 
+        color="bg-[#4AE54A]/40" 
         size={45} 
         initialX={25} 
         initialY={35} 
         scrollMultiplier={-0.7}
       />
       <Shape 
-        color="bg-green-400" 
+        color="bg-[#60A5FA]/40" 
         size={50} 
         initialX={92} 
         initialY={65} 
