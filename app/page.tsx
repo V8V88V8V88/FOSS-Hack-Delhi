@@ -6,7 +6,8 @@ import Link from 'next/link'
 import { ArrowRight, Calendar, MapPin, Users } from 'lucide-react'
 import { Suspense } from 'react'
 import dynamic from 'next/dynamic'
-import { Diamond, Medal } from 'lucide-react'
+import { GeometricShapes } from '@/components/geometric-shapes'
+import Image from 'next/image'
 
 const DynamicGeometricShapes = dynamic(() => import('@/components/geometric-shapes').then(mod => mod.GeometricShapes), {
   ssr: false
@@ -60,14 +61,38 @@ const AnimatedTitle = ({ children }: { children: React.ReactNode }) => {
   )
 }
 
+const SponsorTier = ({ title, sponsors, bgColor }: { title: string; sponsors: number[]; bgColor: string }) => (
+  <div className={`${bgColor} rounded-xl p-6 mb-8`}>
+    <h3 className="text-2xl font-semibold mb-4 text-[#1a1a1a]">{title} Sponsors</h3>
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      {sponsors.map((sponsor, index) => (
+        <motion.div
+          key={index}
+          className="bg-white/80 p-4 rounded-xl flex items-center justify-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 * index, duration: 0.8 }}
+        >
+          <Image
+            src={`/placeholder.svg?height=80&width=160`}
+            width={160}
+            height={80}
+            alt={`${title} Sponsor ${sponsor}`}
+            className="max-w-full h-auto"
+          />
+        </motion.div>
+      ))}
+    </div>
+  </div>
+)
+
 export default function Home() {
   return (
     <div className="bg-white text-[#1a1a1a] text-lg relative overflow-hidden">
-      {/* Even more subtle blur elements */}
-{/* Blur elements with updated colors */}
+      {/* Blur elements with updated colors */}
       <BlurElement className="bg-[#4AE54A]/40 w-[800px] h-[800px] -top-[400px] -left-[300px] opacity-[0.15]" />
       <BlurElement className="bg-[#60A5FA]/40 w-[600px] h-[600px] top-[30%] -right-[200px] opacity-[0.15]" />
-      <BlurElement className="bg-[#60A5FA]/40 w-[700px] h-[700px] bottom-0 left-1/2 -translate-x-1/2 opacity-[0.15]" />
+      <BlurElement className="bg-[#8B5CF6]/40 w-[700px] h-[700px] bottom-0 left-1/2 -translate-x-1/2 opacity-[0.15]" />
       
       {/* Geometric shapes */}
       <Suspense fallback={<div>Loading...</div>}>
@@ -227,6 +252,21 @@ export default function Home() {
         </div>
       </Section>
 
+      <Section id="sponsors">
+        <div className="max-w-5xl mx-auto relative z-10">
+          <AnimatedTitle>Our Sponsors</AnimatedTitle>
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 1, ease: [0.6, -0.05, 0.01, 0.99] }}
+          >
+            <SponsorTier title="Platinum" sponsors={[1, 2]} bgColor="bg-[#8B5CF6]/20" />
+            <SponsorTier title="Gold" sponsors={[1, 2, 3]} bgColor="bg-[#F59E0B]/20" />
+            <SponsorTier title="Silver" sponsors={[1, 2, 3, 4]} bgColor="bg-[#9CA3AF]/20" />
+          </motion.div>
+        </div>
+      </Section>
+
       <Section id="team">
         <div className="max-w-6xl mx-auto relative z-10">
           <AnimatedTitle>Team</AnimatedTitle>
@@ -297,90 +337,6 @@ export default function Home() {
               Our mission is to promote open-source development and provide a platform for 
               creative minds to build solutions that benefit the community.
             </p>
-          </motion.div>
-        </div>
-      </Section>
-
-      <Section id="sponsors">
-        <div className="max-w-6xl mx-auto relative z-10">
-          <AnimatedTitle>Our Sponsors</AnimatedTitle>
-          <motion.div 
-            className="space-y-16"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 1, ease: [0.6, -0.05, 0.01, 0.99] }}
-          >
-            {/* Platinum Sponsors */}
-            <div>
-              <h3 className="text-3xl font-semibold mb-6 text-[#1a1a1a] flex items-center gap-2">
-                <Diamond className="w-8 h-8 text-[#E5E4E2]" /> Platinum Sponsors
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                {[
-                  { name: "Sponsor1", logo: "/placeholder.svg" },
-                  { name: "Sponsor2", logo: "/placeholder.svg" },
-                ].map((sponsor, i) => (
-                  <motion.div
-                    key={i}
-                    className="bg-white/50 p-8 rounded-xl shadow-lg flex items-center justify-center"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 * i, duration: 0.8 }}
-                  >
-                    <img src={sponsor.logo} alt={sponsor.name} className="w-48 h-48 object-contain" />
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Gold Sponsors */}
-            <div>
-              <h3 className="text-2xl font-semibold mb-6 text-[#1a1a1a] flex items-center gap-2">
-                <Medal className="w-7 h-7 text-[#FFD700]" /> Gold Sponsors
-              </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
-                {[
-                  { name: "Sponsor3", logo: "/placeholder.svg" },
-                  { name: "Sponsor4", logo: "/placeholder.svg" },
-                  { name: "Sponsor5", logo: "/placeholder.svg" },
-                ].map((sponsor, i) => (
-                  <motion.div
-                    key={i}
-                    className="bg-white/50 p-6 rounded-xl shadow-md flex items-center justify-center"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 * i, duration: 0.8 }}
-                  >
-                    <img src={sponsor.logo} alt={sponsor.name} className="w-36 h-36 object-contain" />
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Silver Sponsors */}
-            <div>
-              <h3 className="text-xl font-semibold mb-6 text-[#1a1a1a] flex items-center gap-2">
-                <Medal className="w-6 h-6 text-[#C0C0C0]" /> Silver Sponsors
-              </h3>
-              <div className="grid grid-cols-3 sm:grid-cols-4 gap-4">
-                {[
-                  { name: "Sponsor6", logo: "/placeholder.svg" },
-                  { name: "Sponsor7", logo: "/placeholder.svg" },
-                  { name: "Sponsor8", logo: "/placeholder.svg" },
-                  { name: "Sponsor9", logo: "/placeholder.svg" },
-                ].map((sponsor, i) => (
-                  <motion.div
-                    key={i}
-                    className="bg-white/50 p-4 rounded-lg shadow-sm flex items-center justify-center"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 * i, duration: 0.8 }}
-                  >
-                    <img src={sponsor.logo} alt={sponsor.name} className="w-24 h-24 object-contain" />
-                  </motion.div>
-                ))}
-              </div>
-            </div>
           </motion.div>
         </div>
       </Section>
