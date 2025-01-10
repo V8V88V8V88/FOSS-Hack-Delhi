@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { ArrowRight, Calendar, MapPin, Users } from 'lucide-react'
 import { Suspense } from 'react'
 import dynamic from 'next/dynamic'
+import { Diamond, Medal } from 'lucide-react'
 
 const DynamicGeometricShapes = dynamic(() => import('@/components/geometric-shapes').then(mod => mod.GeometricShapes), {
   ssr: false
@@ -296,6 +297,90 @@ export default function Home() {
               Our mission is to promote open-source development and provide a platform for 
               creative minds to build solutions that benefit the community.
             </p>
+          </motion.div>
+        </div>
+      </Section>
+
+      <Section id="sponsors">
+        <div className="max-w-6xl mx-auto relative z-10">
+          <AnimatedTitle>Our Sponsors</AnimatedTitle>
+          <motion.div 
+            className="space-y-16"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 1, ease: [0.6, -0.05, 0.01, 0.99] }}
+          >
+            {/* Platinum Sponsors */}
+            <div>
+              <h3 className="text-3xl font-semibold mb-6 text-[#1a1a1a] flex items-center gap-2">
+                <Diamond className="w-8 h-8 text-[#E5E4E2]" /> Platinum Sponsors
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                {[
+                  { name: "Sponsor1", logo: "/placeholder.svg" },
+                  { name: "Sponsor2", logo: "/placeholder.svg" },
+                ].map((sponsor, i) => (
+                  <motion.div
+                    key={i}
+                    className="bg-white/50 p-8 rounded-xl shadow-lg flex items-center justify-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 * i, duration: 0.8 }}
+                  >
+                    <img src={sponsor.logo} alt={sponsor.name} className="w-48 h-48 object-contain" />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Gold Sponsors */}
+            <div>
+              <h3 className="text-2xl font-semibold mb-6 text-[#1a1a1a] flex items-center gap-2">
+                <Medal className="w-7 h-7 text-[#FFD700]" /> Gold Sponsors
+              </h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
+                {[
+                  { name: "Sponsor3", logo: "/placeholder.svg" },
+                  { name: "Sponsor4", logo: "/placeholder.svg" },
+                  { name: "Sponsor5", logo: "/placeholder.svg" },
+                ].map((sponsor, i) => (
+                  <motion.div
+                    key={i}
+                    className="bg-white/50 p-6 rounded-xl shadow-md flex items-center justify-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 * i, duration: 0.8 }}
+                  >
+                    <img src={sponsor.logo} alt={sponsor.name} className="w-36 h-36 object-contain" />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Silver Sponsors */}
+            <div>
+              <h3 className="text-xl font-semibold mb-6 text-[#1a1a1a] flex items-center gap-2">
+                <Medal className="w-6 h-6 text-[#C0C0C0]" /> Silver Sponsors
+              </h3>
+              <div className="grid grid-cols-3 sm:grid-cols-4 gap-4">
+                {[
+                  { name: "Sponsor6", logo: "/placeholder.svg" },
+                  { name: "Sponsor7", logo: "/placeholder.svg" },
+                  { name: "Sponsor8", logo: "/placeholder.svg" },
+                  { name: "Sponsor9", logo: "/placeholder.svg" },
+                ].map((sponsor, i) => (
+                  <motion.div
+                    key={i}
+                    className="bg-white/50 p-4 rounded-lg shadow-sm flex items-center justify-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 * i, duration: 0.8 }}
+                  >
+                    <img src={sponsor.logo} alt={sponsor.name} className="w-24 h-24 object-contain" />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </motion.div>
         </div>
       </Section>
