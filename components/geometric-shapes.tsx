@@ -47,7 +47,7 @@ const Shape = ({ color, size, initialX, initialY, scrollMultiplier = 1, blur = f
   const y = useTransform(scrollYProgress, [0, 1], [0, 300 * scrollMultiplier])
   const x = useTransform(scrollYProgress, [0, 1], [0, 150 * scrollMultiplier])
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 180 * scrollMultiplier])
-  
+
   const { width } = useWindowSize()
   const responsiveSize = width ? (width / 1920) * size : size
 
@@ -101,7 +101,7 @@ export const GeometricShapes = () => {
         blur
       />
       <Shape 
-        color="bg-[#60A5FA]/40" 
+        color="bg-[#3B82F6]/40" 
         size={60} 
         initialX={85} 
         initialY={25} 
@@ -116,7 +116,7 @@ export const GeometricShapes = () => {
         blur
       />
       <Shape 
-        color="bg-[#60A5FA]/40" 
+        color="bg-[#3B82F6]/40" 
         size={65} 
         initialX={15} 
         initialY={55} 
@@ -131,7 +131,7 @@ export const GeometricShapes = () => {
         blur
       />
       <Shape 
-        color="bg-[#60A5FA]/40" 
+        color="bg-[#3B82F6]/40" 
         size={75} 
         initialX={65} 
         initialY={85} 
@@ -145,7 +145,7 @@ export const GeometricShapes = () => {
         scrollMultiplier={-0.7}
       />
       <Shape 
-        color="bg-[#60A5FA]/40" 
+        color="bg-[#3B82F6]/40" 
         size={50} 
         initialX={92} 
         initialY={65} 
