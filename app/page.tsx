@@ -132,7 +132,7 @@ export default function Home() {
               </div>
             </motion.div>
             <Link 
-              href="https://fossunited.org/dashboard/register-for-hackathon?id=o312an73dc"
+              href="https://fossunited.org/hack/fosshack25/host/delhi"
               className="inline-flex items-center gap-3 bg-[#1a1a1a] text-white px-10 py-5 rounded-full text-xl font-medium hover:bg-black transition-colors duration-300"
             >
               Register Now
