@@ -128,7 +128,7 @@ export default function Home() {
               <div className="hidden sm:block text-2xl">•</div>
               <div className="flex items-center gap-3">
                 <MapPin className="w-6 h-6 text-[#1a1a1a]" />
-                <span>Delhi/NCR</span>
+                <span>Delhi-NCR</span>
               </div>
             </motion.div>
             <Link 
@@ -330,7 +330,7 @@ export default function Home() {
             transition={{ delay: 0.2, duration: 1, ease: [0.6, -0.05, 0.01, 0.99] }}
           >
             <p className="text-2xl leading-relaxed">
-              FOSS Hack is Delhi/NCR's premier open-source hackathon, bringing together developers, 
+              FOSS Hack is Delhi-NCR's premier open-source hackathon, bringing together developers, 
               designers, and innovators to collaborate on meaningful projects.
             </p>
             <p className="text-2xl leading-relaxed">
@@ -348,7 +348,7 @@ export default function Home() {
         transition={{ duration: 1.5 }}
       >
         <div className="max-w-5xl mx-auto text-center text-[#1a1a1a]/70">
-          <p className="text-xl">&copy; 2025 FOSS Hack Delhi/NCR. All rights reserved.</p>
+          <p className="text-xl">&copy; 2025 FOSS Hack Delhi-NCR. All rights reserved.</p>
         </div>
       </motion.footer>
     </div>
