@@ -216,20 +216,26 @@ export default function Home() {
           >
             {[
               { 
-                title: "Discord Community", 
+                title: "Discord Server", 
                 desc: "Join our community for updates and discussions",
                 url: "https://discord.gg/Dxwx99RJKH"
+              },
+              { 
+                title: "Telegram Group", 
+                desc: "Join our Telegram group",
+                url: "https://t.me/TheFOSSClub"
+              },
+              { 
+                title: "WhatsApp Group", 
+                desc: "Access our WhatsApp group",
+                url: "https://chat.whatsapp.com/JSGCKlaB4YSDJkEDg6ImSL"
               },
               { 
                 title: "GitHub", 
                 desc: "Access our code repositories",
                 url: "https://github.com/thefossclub"
               },
-              { 
-                title: "Telegram", 
-                desc: "Join our Telegram group",
-                url: "https://t.me/TheFOSSClub"
-              },
+
             ].map((link, index) => (
               <motion.div
                 key={link.title}
@@ -278,11 +284,10 @@ export default function Home() {
           >
             {[
               { name: "Vaibhav", title: "Organizer" },
-              { name: "Arull", title: "Organizer" },
-              { name: "Ashwany", title: "Mentor" },
+              { name: "Arull", title: "Graphics Head" },
+              { name: "Ashwany", title: "Organizer" },
               { name: "Diksha", title: "Volunteer" },
               { name: "Diti", title: "Head" },
-              { name: "Eirtty", title: "Organizer" },
               { name: "Gautam", title: "Mentor" },
               { name: "Harshvardhan", title: "Volunteer" },
               { name: "Jayesh", title: "Head" },
@@ -296,7 +301,7 @@ export default function Home() {
               { name: "Tiya", title: "Head" },
               { name: "Vanya", title: "Organizer" },
               { name: "Vinay", title: "Mentor" },
-              { name: "Lovish", title: "Volunteer" }
+              { name: "Lovish", title: "Graphics Head" }
             ].map((member, i) => (
               <motion.div 
                 key={i} 
