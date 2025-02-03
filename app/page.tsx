@@ -215,25 +215,40 @@ export default function Home() {
             transition={{ delay: 0.2, duration: 1, ease: [0.6, -0.05, 0.01, 0.99] }}
           >
             {[
+              {
+                title: "Volunteers Application", 
+                desc: "Apply to become a volunteer",
+                url: "https://opnform.com/forms/foss-hack-2025-delhi-campus-ambassador-application-kmvl7s-1"
+              },
+              {
+                title: "Community Partners Application", 
+                desc: "Apply to become a community partner",
+                url: "https://opnform.com/forms/foss-hack-2025-delhi-community-partners-application-3bufik"
+              },
+              {
+                title: "Campus Ambassador Application", 
+                desc: "Apply to become a campus ambassador",
+                url: "https://opnform.com/forms/foss-hack-2025-delhi-campus-ambassador-application-kmvl7s"
+              },
               { 
                 title: "Discord Server", 
-                desc: "Join our community for updates and discussions",
+                desc: "Join our community for discussions",
                 url: "https://discord.gg/Dxwx99RJKH"
               },
               { 
                 title: "Telegram Group", 
-                desc: "Join our Telegram group",
+                desc: "Join our telegram group",
                 url: "https://t.me/TheFOSSClub"
               },
               { 
                 title: "WhatsApp Group", 
-                desc: "Access our WhatsApp group",
+                desc: "Access our whatsApp group",
                 url: "https://chat.whatsapp.com/JSGCKlaB4YSDJkEDg6ImSL"
               },
               { 
-                title: "GitHub", 
-                desc: "Access our code repositories",
-                url: "https://github.com/thefossclub"
+                title: "LinkTree", 
+                desc: "Access all our links",
+                url: "https://linktr.ee/thefossclub"
               },
 
             ].map((link, index) => (
