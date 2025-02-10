@@ -128,7 +128,7 @@ export default function Home() {
               <div className="hidden sm:block text-2xl">•</div>
               <div className="flex items-center gap-3">
                 <MapPin className="w-6 h-6 text-[#1a1a1a]" />
-                <span>Delhi-NCR</span>
+                <span><a href="https://maps.app.goo.gl/fi57g51gy84YohzP8">Delhi Technical Campus</a></span>
               </div>
             </motion.div>
             <Link 
