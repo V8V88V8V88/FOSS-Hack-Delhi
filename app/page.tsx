@@ -298,25 +298,21 @@ export default function Home() {
             transition={{ delay: 0.2, duration: 1, ease: [0.6, -0.05, 0.01, 0.99] }}
           >
             {[
-              { name: "Vaibhav", title: "Organizer" },
-              { name: "Arull", title: "Graphics Head" },
-              { name: "Ashwany", title: "Organizer" },
-              { name: "Diksha", title: "Volunteer" },
-              { name: "Diti", title: "Head" },
-              { name: "Gautam", title: "Mentor" },
-              { name: "Harshvardhan", title: "Volunteer" },
-              { name: "Jayesh", title: "Head" },
-              { name: "Nishchal", title: "Organizer" },
-              { name: "Riyansh", title: "Mentor" },
-              { name: "Sachin", title: "Volunteer" },
-              { name: "Satyam", title: "Head" },
-              { name: "Shreshth", title: "Organizer" },
-              { name: "Srijan", title: "Mentor" },
-              { name: "Suryansh", title: "Volunteer" },
-              { name: "Tiya", title: "Head" },
-              { name: "Vanya", title: "Organizer" },
-              { name: "Vinay", title: "Mentor" },
-              { name: "Lovish", title: "Graphics Head" }
+              { name: "Vaibhav", title: "Head Organizer" },
+              { name: "Palak", title: "Graphics Head" },
+              { name: "Ashwany", title: "Media Head" },
+              { name: "Vanya", title: "Social Media Head" },
+              { name: "Nishchal", title: "Decoration Head" },
+              { name: "Sachin", title: "Community Partners Head" },
+              { name: "Riyansh", title: "Campus Ambassador Head" },
+              { name: "Sanjam", title: "Content Wriiting" },
+              { name: "Diti", title: "Auditorium Work" },
+              { name: "Vaibhav", title: "Logistics Work" },
+              { name: "Suryansh", title: "Event Handeling" },
+              { name: "Satyam", title: "Tasks Master" },
+              { name: "Nishchal", title: "Mess Handeling" },
+              { name: "Shresth", title: "Discpline" },
+              { name: "Jayesh", title: "Registration Desk" },
             ].map((member, i) => (
               <motion.div 
                 key={i} 
