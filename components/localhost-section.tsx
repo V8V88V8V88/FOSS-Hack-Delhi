@@ -73,7 +73,7 @@ export function LocalhostSection() {
           >
             <div className="relative aspect-square w-full">
               <Image
-                src="/placeholder.svg"
+                src="/dtc.JPG"
                 alt="Delhi Technical Campus - Localhost Venue"
                 fill
                 className="object-cover"
