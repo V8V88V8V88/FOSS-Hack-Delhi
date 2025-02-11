@@ -1,17 +1,21 @@
-'use client'
+"use client"
 
-import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
-import Link from 'next/link'
-import { ArrowRight, Calendar, MapPin, Users } from 'lucide-react'
-import { Suspense } from 'react'
-import dynamic from 'next/dynamic'
-import { GeometricShapes } from '@/components/geometric-shapes'
-import Image from 'next/image'
+import { motion } from "framer-motion"
+import { useInView } from "react-intersection-observer"
+import Link from "next/link"
+import { ArrowRight, Calendar, MapPin, Users } from "lucide-react"
+import { Suspense } from "react"
+import dynamic from "next/dynamic"
+import Image from "next/image"
+import { LocalhostSection } from "@/components/localhost-section"
+import type React from "react" // Import React
 
-const DynamicGeometricShapes = dynamic(() => import('@/components/geometric-shapes').then(mod => mod.GeometricShapes), {
-  ssr: false
-})
+const DynamicGeometricShapes = dynamic(
+  () => import("@/components/geometric-shapes").then((mod) => mod.GeometricShapes),
+  {
+    ssr: false,
+  },
+)
 
 const BlurElement = ({ className }: { className: string }) => (
   <motion.div
@@ -93,7 +97,7 @@ export default function Home() {
       <BlurElement className="bg-[#4AE54A]/40 w-[800px] h-[800px] -top-[400px] -left-[300px] opacity-[0.15]" />
       <BlurElement className="bg-[#60A5FA]/40 w-[600px] h-[600px] top-[30%] -right-[200px] opacity-[0.15]" />
       <BlurElement className="bg-[#4AE54A]/40 w-[700px] h-[700px] bottom-0 left-1/2 -translate-x-1/2 opacity-[0.15]" />
-      
+
       {/* Geometric shapes */}
       <Suspense fallback={<div>Loading...</div>}>
         <DynamicGeometricShapes />
@@ -101,13 +105,13 @@ export default function Home() {
 
       <Section id="register">
         <div className="text-center max-w-5xl mx-auto relative z-10">
-          <motion.div 
+          <motion.div
             className="mb-20 space-y-8"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.6, -0.05, 0.01, 0.99] }}
           >
-            <motion.h1 
+            <motion.h1
               className="text-7xl sm:text-8xl font-bold text-[#1a1a1a]"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -115,7 +119,7 @@ export default function Home() {
             >
               FOSS Hack 2025
             </motion.h1>
-            <motion.div 
+            <motion.div
               className="flex flex-col sm:flex-row items-center justify-center gap-6 text-xl text-[#1a1a1a]/60"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -128,10 +132,12 @@ export default function Home() {
               <div className="hidden sm:block text-2xl">•</div>
               <div className="flex items-center gap-3">
                 <MapPin className="w-6 h-6 text-[#1a1a1a]" />
-                <span><a href="https://maps.app.goo.gl/fi57g51gy84YohzP8">Delhi Technical Campus</a></span>
+                <span>
+                  <a href="https://maps.app.goo.gl/fi57g51gy84YohzP8">Delhi Technical Campus</a>
+                </span>
               </div>
             </motion.div>
-            <Link 
+            <Link
               href="https://fossunited.org/hack/fosshack25/host/delhi"
               className="inline-flex items-center gap-3 bg-[#1a1a1a] text-white px-10 py-5 rounded-full text-xl font-medium hover:bg-black transition-colors duration-300"
             >
@@ -142,10 +148,15 @@ export default function Home() {
         </div>
       </Section>
 
+      {/* Add after the register Section and before rules Section */}
+      <Section id="venue">
+        <LocalhostSection />
+      </Section>
+
       <Section id="rules">
         <div className="max-w-5xl mx-auto relative z-10">
           <AnimatedTitle>Hackathon Rules</AnimatedTitle>
-          <motion.div 
+          <motion.div
             className="space-y-8 text-xl text-[#1a1a1a]/60"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -156,7 +167,7 @@ export default function Home() {
               "Teams can have 2-4 members",
               "Projects must be open-source and use an OSI-approved license",
               "Use of open-source libraries and frameworks is allowed",
-              "Projects must be submitted before the deadline"
+              "Projects must be submitted before the deadline",
             ].map((rule, index) => (
               <motion.p
                 key={index}
@@ -175,20 +186,22 @@ export default function Home() {
       <Section id="coc">
         <div className="max-w-5xl mx-auto relative z-10">
           <AnimatedTitle>Code of Conduct</AnimatedTitle>
-          <motion.div 
+          <motion.div
             className="prose prose-xl text-[#1a1a1a]/60"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 1, ease: [0.6, -0.05, 0.01, 0.99] }}
           >
-            <p className="text-xl">We are committed to providing a harassment-free experience for everyone, regardless of:</p>
+            <p className="text-xl">
+              We are committed to providing a harassment-free experience for everyone, regardless of:
+            </p>
             <ul className="list-none space-y-4 text-xl">
               {[
                 "Gender, gender identity, and expression",
                 "Age, sexual orientation, disability",
                 "Physical appearance, body size, race, ethnicity",
                 "Religion (or lack thereof)",
-                "Technology choices"
+                "Technology choices",
               ].map((item, index) => (
                 <motion.li
                   key={index}
@@ -208,7 +221,7 @@ export default function Home() {
       <Section id="links">
         <div className="max-w-5xl mx-auto relative z-10">
           <AnimatedTitle>Important Links</AnimatedTitle>
-          <motion.div 
+          <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 gap-8"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -216,41 +229,40 @@ export default function Home() {
           >
             {[
               {
-                title: "Volunteers Application", 
+                title: "Volunteers Application",
                 desc: "Apply to become a volunteer",
-                url: "https://opnform.com/forms/foss-hack-2025-delhi-campus-ambassador-application-kmvl7s-1"
+                url: "https://opnform.com/forms/foss-hack-2025-delhi-campus-ambassador-application-kmvl7s-1",
               },
               {
-                title: "Community Partners Application", 
+                title: "Community Partners Application",
                 desc: "Apply to become a community partner",
-                url: "https://opnform.com/forms/foss-hack-2025-delhi-community-partners-application-3bufik"
+                url: "https://opnform.com/forms/foss-hack-2025-delhi-community-partners-application-3bufik",
               },
               {
-                title: "Campus Ambassador Application", 
+                title: "Campus Ambassador Application",
                 desc: "Apply to become a campus ambassador",
-                url: "https://opnform.com/forms/foss-hack-2025-delhi-campus-ambassador-application-kmvl7s"
+                url: "https://opnform.com/forms/foss-hack-2025-delhi-campus-ambassador-application-kmvl7s",
               },
-              { 
-                title: "Discord Server", 
+              {
+                title: "Discord Server",
                 desc: "Join our community for discussions",
-                url: "https://discord.gg/Dxwx99RJKH"
+                url: "https://discord.gg/Dxwx99RJKH",
               },
-              { 
-                title: "Telegram Group", 
+              {
+                title: "Telegram Group",
                 desc: "Join our telegram group",
-                url: "https://t.me/TheFOSSClub"
+                url: "https://t.me/TheFOSSClub",
               },
-              { 
-                title: "WhatsApp Group", 
+              {
+                title: "WhatsApp Group",
                 desc: "Access our whatsApp group",
-                url: "https://chat.whatsapp.com/JSGCKlaB4YSDJkEDg6ImSL"
+                url: "https://chat.whatsapp.com/JSGCKlaB4YSDJkEDg6ImSL",
               },
-              { 
-                title: "LinkTree", 
+              {
+                title: "LinkTree",
                 desc: "Access all our links",
-                url: "https://linktr.ee/thefossclub"
+                url: "https://linktr.ee/thefossclub",
               },
-
             ].map((link, index) => (
               <motion.div
                 key={link.title}
@@ -258,7 +270,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * index, duration: 0.8 }}
               >
-                <Link 
+                <Link
                   href={link.url}
                   className="p-8 rounded-xl border-2 border-[#1a1a1a]/10 hover:border-[#1a1a1a]/20 transition-colors block group bg-white/50"
                 >
@@ -276,7 +288,7 @@ export default function Home() {
       <Section id="sponsors">
         <div className="max-w-5xl mx-auto relative z-10">
           <AnimatedTitle>Our Sponsors</AnimatedTitle>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 1, ease: [0.6, -0.05, 0.01, 0.99] }}
@@ -291,7 +303,7 @@ export default function Home() {
       <Section id="team">
         <div className="max-w-6xl mx-auto relative z-10">
           <AnimatedTitle>Team</AnimatedTitle>
-          <motion.div 
+          <motion.div
             className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -314,14 +326,14 @@ export default function Home() {
               { name: "Shresth", title: "Discpline" },
               { name: "Jayesh", title: "Registration Desk" },
             ].map((member, i) => (
-              <motion.div 
-                key={i} 
+              <motion.div
+                key={i}
                 className="text-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * i, duration: 0.8 }}
               >
-                <motion.div 
+                <motion.div
                   className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4 rounded-full bg-[#1a1a1a]/5 flex items-center justify-center"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
@@ -339,25 +351,25 @@ export default function Home() {
       <Section id="about">
         <div className="max-w-5xl mx-auto relative z-10">
           <AnimatedTitle>About FOSS Hack</AnimatedTitle>
-          <motion.div 
+          <motion.div
             className="prose prose-xl text-[#1a1a1a]/60"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 1, ease: [0.6, -0.05, 0.01, 0.99] }}
           >
             <p className="text-2xl leading-relaxed">
-              FOSS Hack is Delhi-NCR's premier open-source hackathon, bringing together developers, 
-              designers, and innovators to collaborate on meaningful projects.
+              FOSS Hack is Delhi-NCR's premier open-source hackathon, bringing together developers, designers, and
+              innovators to collaborate on meaningful projects.
             </p>
             <p className="text-2xl leading-relaxed">
-              Our mission is to promote open-source development and provide a platform for 
-              creative minds to build solutions that benefit the community.
+              Our mission is to promote open-source development and provide a platform for creative minds to build
+              solutions that benefit the community.
             </p>
           </motion.div>
         </div>
       </Section>
 
-      <motion.footer 
+      <motion.footer
         className="border-t border-[#1a1a1a]/10 py-16 px-8 relative z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
