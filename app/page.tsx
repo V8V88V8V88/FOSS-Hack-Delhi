@@ -92,7 +92,7 @@ export default function Home() {
       {/* Blur elements with updated colors */}
       <BlurElement className="bg-[#4AE54A]/40 w-[800px] h-[800px] -top-[400px] -left-[300px] opacity-[0.15]" />
       <BlurElement className="bg-[#60A5FA]/40 w-[600px] h-[600px] top-[30%] -right-[200px] opacity-[0.15]" />
-      <BlurElement className="bg-[#8B5CF6]/40 w-[700px] h-[700px] bottom-0 left-1/2 -translate-x-1/2 opacity-[0.15]" />
+      <BlurElement className="bg-[#4AE54A]/40 w-[700px] h-[700px] bottom-0 left-1/2 -translate-x-1/2 opacity-[0.15]" />
       
       {/* Geometric shapes */}
       <Suspense fallback={<div>Loading...</div>}>
