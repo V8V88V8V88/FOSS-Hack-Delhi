@@ -127,12 +127,13 @@ export function LocalhostSection() {
               className="relative max-w-4xl w-full aspect-square"
               onClick={(e) => e.stopPropagation()}
             >
-              <Image
-                src="/placeholder.svg"
-                alt="Delhi Technical Campus - Localhost Venue"
-                fill
-                className="object-cover rounded-lg"
-              />
+<Image
+  src="/dtc.JPG"
+  alt="Delhi Technical Campus - Localhost Venue"
+  fill
+  className="object-cover rounded-lg"
+/>
+
               <button
                 onClick={() => setIsEnlarged(false)}
                 className="absolute top-4 right-4 text-white bg-black/50 p-2 rounded-full hover:bg-black/70 transition-colors"
