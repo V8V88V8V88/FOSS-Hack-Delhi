@@ -65,7 +65,15 @@ const AnimatedTitle = ({ children }: { children: React.ReactNode }) => {
   )
 }
 
-const SponsorTier = ({ title, sponsors, bgColor }: { title: string; sponsors: number[]; bgColor: string }) => (
+const SponsorTier = ({
+  title,
+  sponsors,
+  bgColor,
+}: {
+  title: string;
+  sponsors: Sponsor[];
+  bgColor: string;
+}) => (
   <div className={`${bgColor} rounded-xl p-6 mb-8`}>
     <h3 className="text-2xl font-semibold mb-4 text-[#1a1a1a]">{title} Sponsors</h3>
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
@@ -78,10 +86,10 @@ const SponsorTier = ({ title, sponsors, bgColor }: { title: string; sponsors: nu
           transition={{ delay: 0.1 * index, duration: 0.8 }}
         >
           <Image
-            src={`/placeholder.svg?height=80&width=160`}
+            src={sponsor.logo}
             width={160}
             height={80}
-            alt={`${title} Sponsor ${sponsor}`}
+            alt={`${title} Sponsor ${sponsor.name}`}
             className="max-w-full h-auto"
           />
         </motion.div>
