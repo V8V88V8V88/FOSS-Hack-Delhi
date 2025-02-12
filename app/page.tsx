@@ -242,21 +242,6 @@ export default function Home() {
           >
             {[
               {
-                title: "Volunteers Application",
-                desc: "Apply to become a volunteer",
-                url: "https://opnform.com/forms/foss-hack-2025-delhi-campus-ambassador-application-kmvl7s-1",
-              },
-              {
-                title: "Community Partners Application",
-                desc: "Apply to become a community partner",
-                url: "https://opnform.com/forms/foss-hack-2025-delhi-community-partners-application-3bufik",
-              },
-              {
-                title: "Campus Ambassador Application",
-                desc: "Apply to become a campus ambassador",
-                url: "https://opnform.com/forms/foss-hack-2025-delhi-campus-ambassador-application-kmvl7s",
-              },
-              {
                 title: "Discord Server",
                 desc: "Join our community for discussions",
                 url: "https://discord.gg/Dxwx99RJKH",
