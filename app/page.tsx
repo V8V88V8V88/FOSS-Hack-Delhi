@@ -286,19 +286,35 @@ export default function Home() {
       </Section>
 
       <Section id="sponsors">
-        <div className="max-w-5xl mx-auto relative z-10">
-          <AnimatedTitle>Our Sponsors</AnimatedTitle>
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 1, ease: [0.6, -0.05, 0.01, 0.99] }}
-          >
-            <SponsorTier title="Platinum" sponsors={[1, 2]} bgColor="bg-[#8B5CF6]/20" />
-            <SponsorTier title="Gold" sponsors={[1, 2, 3]} bgColor="bg-[#F59E0B]/20" />
-            <SponsorTier title="Silver" sponsors={[1, 2, 3, 4]} bgColor="bg-[#9CA3AF]/20" />
-          </motion.div>
-        </div>
-      </Section>
+  <div className="max-w-5xl mx-auto relative z-10">
+    <AnimatedTitle>Our Sponsors</AnimatedTitle>
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.2, duration: 1, ease: [0.6, -0.05, 0.01, 0.99] }}
+    >
+      {/* Platinum Tier (Empty) */}
+      <SponsorTier title="Platinum" sponsors={[]} bgColor="bg-[#8B5CF6]/20" />
+
+      {/* Gold Tier (The Linux Foundation Only) */}
+      <SponsorTier
+        title="Gold"
+        sponsors={[
+          {
+            name: "The Linux Foundation",
+            logo: "/linux.png",
+          },
+        ]}
+        bgColor="bg-[#F59E0B]/20"
+      />
+
+      {/* Silver Tier (Empty) */}
+      <SponsorTier title="Silver" sponsors={[]} bgColor="bg-[#9CA3AF]/20" />
+    </motion.div>
+  </div>
+</Section>
+
+
 
       <Section id="team">
         <div className="max-w-6xl mx-auto relative z-10">
