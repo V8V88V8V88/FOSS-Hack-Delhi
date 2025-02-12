@@ -65,6 +65,11 @@ const AnimatedTitle = ({ children }: { children: React.ReactNode }) => {
   )
 }
 
+interface Sponsor {
+  name: string;
+  logo: string;
+}
+
 const SponsorTier = ({
   title,
   sponsors,
@@ -334,7 +339,7 @@ export default function Home() {
             transition={{ delay: 0.2, duration: 1, ease: [0.6, -0.05, 0.01, 0.99] }}
           >
             {[
-              { name: "Vaibhav", title: "Head Organizer" },
+              { name: "Vaibhav", title: "Lead Organizer" },
               { name: "Palak", title: "Graphics Head" },
               { name: "Ashwany", title: "Media Head" },
               { name: "Vanya", title: "Social Media Head" },
