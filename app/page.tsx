@@ -325,7 +325,7 @@ export default function Home() {
           >
             {[
               { name: "Vaibhav", title: "Lead Organizer" },
-              { name: "Palak", title: "Graphics Head" },
+              { name: "Vaibhav", title: "Graphics Head" },
               { name: "Ashwany", title: "Media Head" },
               { name: "Vanya", title: "Social Media Head" },
               { name: "Nishchal", title: "Decoration Head" },
