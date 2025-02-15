@@ -224,12 +224,18 @@ export default function Home() {
                   className="flex items-center gap-3"
                 >
                   <span className="text-[#1a1a1a]">•</span> {item}
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-        </div>
-      </Section>
+          </motion.li>
+        ))}
+      </ul>
+      <p className="text-xl mt-6 font-semibold">
+        Reporting Code of Conduct Violations
+      </p>
+      <p className="text-xl">
+        If you are being harassed, notice that someone else is being harassed, or come across a violation of the code of conduct, please contact a volunteer/organiser immediately. Participants can call <b>8979843626</b> or email <a href="mailto:fossclub@proton.me" className="underline">fossclub@proton.me</a> for any reports or queries. All reporters will remain anonymous.
+      </p>
+    </motion.div>
+  </div>
+</Section>
 
       <Section id="links">
         <div className="max-w-5xl mx-auto relative z-10">
