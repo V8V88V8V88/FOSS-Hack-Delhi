@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { motion } from "framer-motion"
 
 interface TimeLeft {
@@ -12,7 +12,7 @@ interface TimeLeft {
 
 export function CountdownTimer() {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 })
-  const targetDate = new Date("2025-02-22T08:00:00")
+  const targetDate = useMemo(() => new Date("2025-02-22T08:00:00"), [])
 
   useEffect(() => {
     const calculateTimeLeft = () => {
