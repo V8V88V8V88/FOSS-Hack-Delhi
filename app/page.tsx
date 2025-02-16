@@ -8,6 +8,7 @@ import { Suspense } from "react"
 import dynamic from "next/dynamic"
 import Image from "next/image"
 import { LocalhostSection } from "@/components/localhost-section"
+import { CountdownTimer } from "@/components/countdown-timer"
 import type React from "react" // Import React
 
 const DynamicGeometricShapes = dynamic(
