@@ -20,13 +20,13 @@ export function LocalhostSection() {
         >
           <div className="flex items-center gap-3 mb-4">
             <MapPin className="w-8 h-8 text-[#1a1a1a]" />
-            <h2 className="text-5xl font-bold text-[#1a1a1a]">Localhost</h2>
+            <h2 className="text-5xl font-bold text-[#1a1a1a]">Localhost: Delhi</h2>
           </div>
           <div className="space-y-4">
             <p className="text-2xl font-semibold text-[#1a1a1a]/80">Delhi Technical Campus</p>
             <p className="text-xl text-[#1a1a1a]/60 leading-relaxed">
-              Join us at our vibrant venue where innovation meets collaboration. Located in the heart of Delhi-NCR,
-              Localhost provides the perfect environment for hackers to create, collaborate, and innovate.
+              Join us at our vibrant venue where innovation meets collaboration. Located in the heart of Greater Noida,
+              Localhost provides the perfect save environment for hackers to create, collaborate, and innovate.
             </p>
             <motion.a
               href="https://maps.app.goo.gl/fi57g51gy84YohzP8"
