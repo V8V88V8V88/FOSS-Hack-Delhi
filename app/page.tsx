@@ -158,6 +158,9 @@ export default function Home() {
               Register Now
               <ArrowRight className="w-6 h-6" />
             </Link>
+            <div className="mt-12 max-w-4xl mx-auto w-full">
+              <CountdownTimer />
+            </div>
           </motion.div>
         </div>
       </Section>
