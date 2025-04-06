@@ -172,7 +172,7 @@ export default function Home() {
 
       <Section id="rules">
         <div className="max-w-5xl mx-auto relative z-10">
-          <AnimatedTitle>Hackathon Rules</AnimatedTitle>
+          <AnimatedTitle>Hackathon Rules & Regulations</AnimatedTitle>
           <motion.div
             className="space-y-8 text-xl text-[#1a1a1a]/60"
             initial={{ opacity: 0, y: 50 }}
