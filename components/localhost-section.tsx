@@ -62,7 +62,7 @@ export function LocalhostSection() {
                 repeat: Number.POSITIVE_INFINITY,
                 ease: "linear",
               }}
-              className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-full blur-3xl"
+              className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-full blur-3xl"
             />
           </div>
 
@@ -96,7 +96,7 @@ export function LocalhostSection() {
               repeat: Number.POSITIVE_INFINITY,
               ease: "easeInOut",
             }}
-            className="absolute -bottom-8 -right-8 w-24 h-24 bg-gradient-to-br from-green-400/20 to-blue-500/20 rounded-full blur-2xl"
+            className="absolute -bottom-8 -right-8 w-24 h-24 bg-gradient-to-br from-green-400/20 to-cyan-500/20 rounded-full blur-2xl"
           />
           <motion.div
             animate={{

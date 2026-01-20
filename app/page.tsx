@@ -115,14 +115,14 @@ const WhySponsorUs = () => (
   <div className="space-y-8 text-foreground/90 text-lg md:text-xl leading-relaxed max-w-4xl mx-auto">
     <p className="text-2xl font-medium text-center mb-10">
       Sponsoring{" "}
-      <span className="text-[var(--accent-neon-green)]">FOSS Hack 2026</span> is
-      a unique opportunity to align your brand with innovation, creativity, and
+      <span className="text-[var(--accent-green)]">FOSS Hack 2026</span> is a
+      unique opportunity to align your brand with innovation, creativity, and
       impactful problem-solving.
     </p>
 
     <div className="grid md:grid-cols-2 gap-8">
-      <div className="glass p-6 rounded-2xl border border-[var(--accent-neon-green)]/20 hover:border-[var(--accent-neon-green)]/40 transition-all duration-300">
-        <h4 className="text-xl font-semibold mb-3 neon-cyan">
+      <div className="glass p-6 rounded-2xl border border-[var(--accent-green)]/20 hover:border-[var(--accent-green)]/40 transition-all duration-300">
+        <h4 className="text-xl font-semibold mb-3 cyan">
           1. Enhanced Brand Exposure
         </h4>
         <p>
@@ -132,7 +132,7 @@ const WhySponsorUs = () => (
         </p>
       </div>
 
-      <div className="glass p-6 rounded-2xl border border-[var(--accent-neon-purple)]/20 hover:border-[var(--accent-neon-purple)]/40 transition-all duration-300">
+      <div className="glass p-6 rounded-2xl border border-[var(--accent-purple)]/20 hover:border-[var(--accent-purple)]/40 transition-all duration-300">
         <h4 className="text-xl font-semibold mb-3 neon-purple">
           2. Alignment with Open-Source Innovation
         </h4>
@@ -143,7 +143,7 @@ const WhySponsorUs = () => (
         </p>
       </div>
 
-      <div className="glass p-6 rounded-2xl border border-[var(--accent-neon-cyan)]/20 hover:border-[var(--accent-neon-cyan)]/40 transition-all duration-300">
+      <div className="glass p-6 rounded-2xl border border-[var(--accent-cyan)]/20 hover:border-[var(--accent-cyan)]/40 transition-all duration-300">
         <h4 className="text-xl font-semibold mb-3 neon-cyan">
           3. Meaningful Networking Opportunities
         </h4>
@@ -153,7 +153,7 @@ const WhySponsorUs = () => (
         </p>
       </div>
 
-      <div className="glass p-6 rounded-2xl border border-[var(--accent-neon-green)]/20 hover:border-[var(--accent-neon-green)]/40 transition-all duration-300">
+      <div className="glass p-6 rounded-2xl border border-[var(--accent-green)]/20 hover:border-[var(--accent-green)]/40 transition-all duration-300">
         <h4 className="text-xl font-semibold mb-3 neon-cyan">
           4. Commitment to Community & Education
         </h4>
@@ -163,7 +163,7 @@ const WhySponsorUs = () => (
         </p>
       </div>
 
-      <div className="glass p-6 rounded-2xl border border-[var(--accent-neon-purple)]/20 hover:border-[var(--accent-neon-purple)]/40 transition-all duration-300 md:col-span-2">
+      <div className="glass p-6 rounded-2xl border border-[var(--accent-purple)]/20 hover:border-[var(--accent-purple)]/40 transition-all duration-300 md:col-span-2">
         <h4 className="text-xl font-semibold mb-3 neon-purple">
           5. Platform to Showcase Expertise
         </h4>
@@ -187,7 +187,7 @@ export default function Home() {
     <div className="bg-background text-foreground text-lg relative overflow-hidden">
       {/* Blur elements with updated colors */}
       <BlurElement className="bg-[var(--accent-green)]/40 w-[800px] h-[800px] -top-[400px] -left-[300px] opacity-[0.15]" />
-      <BlurElement className="bg-[var(--accent-blue)]/40 w-[600px] h-[600px] top-[30%] -right-[200px] opacity-[0.15]" />
+      <BlurElement className="bg-[var(--accent-cyan)]/40 w-[600px] h-[600px] top-[30%] -right-[200px] opacity-[0.15]" />
       <BlurElement className="bg-[var(--accent-green)]/40 w-[700px] h-[700px] bottom-0 left-1/2 -translate-x-1/2 opacity-[0.15]" />
 
       {/* Geometric shapes */}
@@ -409,7 +409,7 @@ export default function Home() {
             <SponsorTier
               title="Platinum"
               sponsors={[]}
-              bgColor="bg-gradient-to-br from-blue-200/30 via-blue-300/20 to-transparent backdrop-blur-sm border border-gray-400/30"
+              bgColor="bg-gradient-to-br from-cyan-200/30 via-cyan-300/20 to-transparent backdrop-blur-sm border border-gray-400/30"
             />
 
             <SponsorTier

@@ -49,7 +49,7 @@ export function CountdownTimer() {
   return (
     <div className="relative">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-blue-500/5 rounded-3xl blur-3xl" />
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-cyan-500/5 rounded-3xl blur-3xl" />
 
       <div className="relative bg-white/50 backdrop-blur-md rounded-3xl p-8 border border-white/10 opacity-80">
         <h3 className="text-2xl font-semibold text-center mb-8 text-[#1a1a1a]">

@@ -35,7 +35,7 @@ html {
 }
 
 ::selection {
-    background-color: rgba(var(--accent-neon-cyan), 0.25);
+    background-color: rgba(var(--accent-cyan), 0.25);
 }
 
 .prose {
@@ -52,19 +52,3 @@ html {
     backdrop-filter: blur(var(--blur-strength));
     -webkit-backdrop-filter: blur(var(--blur-strength));
     border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-/* Neon text glow */
-.neon-text {
-    text-shadow:
-        0 0 10px rgba(var(--accent-neon-green), 0.7),
-        0 0 20px rgba(var(--accent-neon-green), 0.5);
-}
-
-.neon-cyan {
-    text-shadow: 0 0 12px rgba(var(--accent-neon-cyan), 0.8);
-}
-
-.neon-purple {
-    text-shadow: 0 0 12px rgba(var(--accent-neon-purple), 0.7);
-}
