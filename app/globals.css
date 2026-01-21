@@ -21,11 +21,41 @@
         --muted: 100 100 120;
         --card-rgb: 255 255 255 / 0.75;
     }
+
+    body {
+        background-color: rgb(var(--background));
+        background-image:
+            radial-gradient(1200px 600px at 10% 10%, rgba(var(--accent-purple), 0.10), transparent 60%),
+            radial-gradient(900px 500px at 90% 25%, rgba(var(--accent-cyan), 0.08), transparent 55%),
+            radial-gradient(800px 450px at 50% 100%, rgba(var(--accent-green), 0.06), transparent 55%),
+            linear-gradient(180deg, rgba(0, 0, 0, 0.03), transparent 40%);
+    }
+}
+
+.theme-light {
+    --background: 250 250 255;
+    --foreground: 20 20 30;
+    --muted: 100 100 120;
+    --card-rgb: 255 255 255 / 0.75;
+}
+
+.theme-light body {
+    background-color: rgb(var(--background));
+    background-image:
+        radial-gradient(1200px 600px at 10% 10%, rgba(var(--accent-purple), 0.10), transparent 60%),
+        radial-gradient(900px 500px at 90% 25%, rgba(var(--accent-cyan), 0.08), transparent 55%),
+        radial-gradient(800px 450px at 50% 100%, rgba(var(--accent-green), 0.06), transparent 55%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.03), transparent 40%);
 }
 
 body {
     color: rgb(var(--foreground));
-    background: rgb(var(--background));
+    background-color: rgb(var(--background));
+    background-image:
+        radial-gradient(1200px 600px at 10% 10%, rgba(var(--accent-purple), 0.20), transparent 60%),
+        radial-gradient(900px 500px at 90% 25%, rgba(var(--accent-cyan), 0.14), transparent 55%),
+        radial-gradient(800px 450px at 50% 100%, rgba(var(--accent-green), 0.10), transparent 55%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 40%);
     overflow-x: hidden;
     letter-spacing: -0.02em;
 }

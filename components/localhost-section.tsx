@@ -34,7 +34,7 @@ export function LocalhostSection() {
               href="https://maps.app.goo.gl/fi57g51gy84YohzP8"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[#1a1a1a] hover:text-[#1a1a1a]/80 transition-colors"
+              className="inline-flex items-center gap-2 text-[#141414] hover:text-[#141414]/80 transition-colors"
               whileHover={{ x: 5 }}
             >
               <span className="underline underline-offset-4">View on Maps</span>
@@ -54,15 +54,19 @@ export function LocalhostSection() {
           <div className="absolute inset-0 z-0">
             <motion.div
               animate={{
-                scale: [1, 1.2, 1],
-                rotate: [0, 5, -5, 0],
+                scale: [1, 1.15, 1],
+                rotate: [0, 3, -3, 0],
               }}
               transition={{
                 duration: 8,
                 repeat: Number.POSITIVE_INFINITY,
                 ease: "linear",
               }}
-              className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-full blur-3xl"
+              className="absolute inset-0 rounded-[40px] blur-3xl"
+              style={{
+                backgroundImage:
+                  "radial-gradient(circle at 0% 50%, rgba(var(--accent-green), 0.45), transparent 60%), radial-gradient(circle at 100% 50%, rgba(var(--accent-cyan), 0.45), transparent 60%)",
+              }}
             />
           </div>
 
@@ -73,6 +77,8 @@ export function LocalhostSection() {
             className="relative z-10 rounded-2xl overflow-hidden shadow-2xl cursor-pointer"
             onClick={() => setIsEnlarged(true)}
           >
+            <div className="pointer-events-none absolute -inset-6 bg-gradient-to-br from-[var(--accent-green)]/35 via-[var(--accent-cyan)]/25 to-[var(--accent-green)]/15 blur-2xl opacity-70" />
+            <div className="pointer-events-none absolute -inset-2 rounded-2xl bg-gradient-to-br from-[var(--accent-green)]/20 via-[var(--accent-cyan)]/18 to-transparent blur-xl opacity-80" />
             <div className="relative aspect-square w-full">
               <Image
                 src="/dtc.JPG"
