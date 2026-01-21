@@ -1,9 +1,22 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
-import { ArrowRight, Calendar, MapPin, Users } from "lucide-react";
+import {
+  ArrowUp,
+  ArrowRight,
+  Calendar,
+  Link2,
+  MapPin,
+  MessageCircle,
+  Moon,
+  PhoneCall,
+  Send,
+  Sun,
+  Users,
+} from "lucide-react";
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
@@ -183,17 +196,102 @@ const WhySponsorUs = () => (
   </div>
 );
 export default function Home() {
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === "light") {
+      root.classList.add("theme-light");
+    } else {
+      root.classList.remove("theme-light");
+    }
+  }, [theme]);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+
+    window.addEventListener("scroll", onScroll);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
+  const toggleTheme = () => setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+
   return (
     <div className="bg-background text-foreground text-lg relative overflow-hidden">
+      <div className="fixed right-6 top-6 z-30">
+        <button
+          onClick={toggleTheme}
+          aria-label="Toggle theme"
+          className={`group inline-flex items-center rounded-full px-2 py-1 backdrop-blur-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-cyan)]/60 focus-visible:ring-offset-2 border border-[rgba(var(--accent-green),0.6)] ${
+            theme === "light"
+              ? "bg-white text-[#141414] shadow-md shadow-black/15 hover:shadow-black/25 focus-visible:ring-offset-white"
+              : "bg-white/18 text-white shadow-[0_0_12px_rgba(0,0,0,0.4)] hover:bg-white/24 focus-visible:ring-offset-black"
+          }`}
+        >
+          <span
+            className={`relative flex h-6 w-10 items-center rounded-full p-1 transition-all ${
+              theme === "light"
+                ? "bg-black/8 group-hover:bg-black/12"
+                : "bg-black/35 group-hover:bg-black/45"
+            }`}
+          >
+            <span
+              className={`flex h-4 w-4 items-center justify-center rounded-full shadow-sm transition-transform duration-300 ${
+                theme === "light" ? "bg-white" : "bg-black/70"
+              } ${theme === "light" ? "translate-x-4" : "translate-x-0"}`}
+            >
+              {theme === "light" ? (
+                <Sun className="h-3.5 w-3.5 text-[#141414]" />
+              ) : (
+                <Moon className="h-3.5 w-3.5 text-white" />
+              )}
+            </span>
+          </span>
+        </button>
+      </div>
       {/* Blur elements with updated colors */}
-      <BlurElement className="bg-[var(--accent-green)]/40 w-[800px] h-[800px] -top-[400px] -left-[300px] opacity-[0.15]" />
-      <BlurElement className="bg-[var(--accent-cyan)]/40 w-[600px] h-[600px] top-[30%] -right-[200px] opacity-[0.15]" />
-      <BlurElement className="bg-[var(--accent-green)]/40 w-[700px] h-[700px] bottom-0 left-1/2 -translate-x-1/2 opacity-[0.15]" />
+      <BlurElement
+        className={`bg-[var(--accent-green)]/40 w-[800px] h-[800px] -top-[400px] -left-[300px] ${
+          theme === "light" ? "opacity-[0.28]" : "opacity-[0.15]"
+        }`}
+      />
+      <BlurElement
+        className={`bg-[var(--accent-cyan)]/40 w-[600px] h-[600px] top-[30%] -right-[200px] ${
+          theme === "light" ? "opacity-[0.26]" : "opacity-[0.15]"
+        }`}
+      />
+      <BlurElement
+        className={`bg-[var(--accent-green)]/40 w-[700px] h-[700px] bottom-0 left-1/2 -translate-x-1/2 ${
+          theme === "light" ? "opacity-[0.24]" : "opacity-[0.15]"
+        }`}
+      />
 
       {/* Geometric shapes */}
       <Suspense fallback={<div>Loading...</div>}>
         <DynamicGeometricShapes />
       </Suspense>
+
+      {/* Scroll to top */}
+      {showScrollTop && (
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          aria-label="Scroll to top"
+          className={`fixed bottom-10 right-6 z-30 flex h-11 w-11 items-center justify-center rounded-full backdrop-blur-md transition-all 
+            ${
+              theme === "light"
+                ? "bg-white text-[#141414] border border-black/10 shadow-lg shadow-black/30 hover:shadow-black/45"
+                : "bg-white/18 text-white border border-white/25 shadow-[0_0_12px_rgba(0,0,0,0.4)] hover:bg-white/24"
+            }`}
+        >
+          <ArrowUp className="h-4 w-4" />
+        </button>
+      )}
 
       <Section id="register">
         <div className="text-center max-w-5xl mx-auto relative z-10">
@@ -233,12 +331,24 @@ export default function Home() {
             </motion.div>
             <Link
               href="https://fossunited.org/dashboard/register-for-hackathon?id=1hdcnkbtmk"
-              className="inline-flex items-center gap-3 bg-foreground text-background px-10 py-5 rounded-full text-xl font-medium hover:bg-foreground/90 transition-colors duration-300"
+              className={`group relative inline-flex items-center gap-3 px-9 py-4 text-lg font-semibold rounded-full overflow-hidden text-[#141414] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[rgba(var(--accent-green),0.6)] focus-visible:ring-offset-2 ${
+                theme === "light"
+                  ? "shadow-md shadow-black/10 focus-visible:ring-offset-white"
+                  : "shadow-lg shadow-[var(--accent-cyan)]/12 focus-visible:ring-offset-black"
+              }`}
             >
-              Register Now
-              <ArrowRight className="w-6 h-6" />
+              <span className="absolute inset-0 rounded-full bg-white" />
+              <span className="absolute inset-0 rounded-full bg-gradient-to-r from-[var(--accent-green)]/60 via-white to-[var(--accent-cyan)]/60 opacity-90 group-hover:opacity-100 transition-opacity duration-300" />
+              <span className="absolute inset-0 rounded-full blur-lg bg-[var(--accent-cyan)]/25 opacity-60 group-hover:opacity-90 transition-opacity duration-300" />
+              <span
+                className="absolute inset-0 rounded-full border border-[rgba(var(--accent-green),0.6)]"
+              />
+              <span className="relative flex items-center gap-3">
+                Register Now
+                <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+              </span>
             </Link>
-            <div className="mt-12 max-w-4xl mx-auto w-full">
+            <div className="mt-24 sm:mt-28 md:mt-32 max-w-4xl mx-auto w-full">
               <CountdownTimer />
             </div>
           </motion.div>
@@ -355,21 +465,25 @@ export default function Home() {
                 title: "Discord Server",
                 desc: "Join our community for discussions",
                 url: "https://discord.gg/Dxwx99RJKH",
+                icon: MessageCircle,
               },
               {
                 title: "Telegram Group",
                 desc: "Join our telegram group",
                 url: "https://t.me/TheFOSSClub",
+                icon: Send,
               },
               {
                 title: "WhatsApp Group",
-                desc: "Access our whatsApp group",
+                desc: "Access our WhatsApp group",
                 url: "https://chat.whatsapp.com/JSGCKlaB4YSDJkEDg6ImSL",
+                icon: PhoneCall,
               },
               {
                 title: "LinkTree",
                 desc: "Access all our links",
                 url: "https://linktr.ee/thefossclub",
+                icon: Link2,
               },
             ].map((link, index) => (
               <motion.div
@@ -377,15 +491,51 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * index, duration: 0.8 }}
+                className="relative group/link"
               >
+                <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-[var(--accent-cyan)]/18 via-[var(--accent-purple)]/14 to-[var(--accent-green)]/10 opacity-0 blur-xl group-hover/link:opacity-100 transition-opacity duration-500" />
                 <Link
                   href={link.url}
-                  className="p-8 rounded-xl border-2 border-foreground/10 hover:border-foreground/20 transition-colors block group bg-background/50"
+                  className={`relative flex items-center justify-between gap-4 p-6 rounded-2xl transition-colors duration-300 border ${
+                    theme === "light"
+                      ? "bg-white text-foreground border-black/10 hover:border-black/20 shadow-sm"
+                      : "bg-black/40 text-white border-foreground/10 hover:border-foreground/30 hover:bg-black/55"
+                  }`}
                 >
-                  <h3 className="text-2xl font-semibold mb-3 text-foreground group-hover:text-foreground/90 transition-colors">
-                    {link.title}
-                  </h3>
-                  <p className="text-xl text-foreground/70">{link.desc}</p>
+                  <div className="flex items-center gap-4">
+                    <div
+                      className={`flex h-11 w-11 items-center justify-center rounded-2xl ${
+                        theme === "light" ? "bg-black/5" : "bg-white/10"
+                      }`}
+                    >
+                      <link.icon
+                        className={`h-5 w-5 ${
+                          theme === "light" ? "text-[var(--accent-purple)]" : "text-[var(--accent-cyan)]"
+                        }`}
+                      />
+                    </div>
+                    <div>
+                      <h3
+                        className={`text-xl font-semibold ${
+                          theme === "light" ? "text-foreground" : "text-white"
+                        }`}
+                      >
+                        {link.title}
+                      </h3>
+                      <p
+                        className={`text-sm md:text-base ${
+                          theme === "light" ? "text-foreground/70" : "text-white/70"
+                        }`}
+                      >
+                        {link.desc}
+                      </p>
+                    </div>
+                  </div>
+                  <ArrowRight
+                    className={`h-5 w-5 flex-shrink-0 transition-transform duration-300 group-hover/link:translate-x-1 ${
+                      theme === "light" ? "text-foreground/60" : "text-white/60"
+                    }`}
+                  />
                 </Link>
               </motion.div>
             ))}
@@ -436,6 +586,16 @@ export default function Home() {
           >
             <WhySponsorUs />
           </motion.div>
+          <div className="mt-8 text-center text-lg text-foreground/70">
+            Interested? Contact us at{" "}
+            <a
+              href="mailto:contact@thefossclub.org"
+              className="underline underline-offset-4 text-foreground"
+            >
+              contact@thefossclub.org
+            </a>
+            .
+          </div>
         </div>
       </Section>
 
@@ -494,16 +654,32 @@ export default function Home() {
                 transition={{ delay: 0.1 * i, duration: 0.8 }}
               >
                 <motion.div
-                  className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4 rounded-full bg-[#1a1a1a]/5 flex items-center justify-center"
+                  className={`w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4 rounded-full flex items-center justify-center ${
+                    theme === "light" ? "bg-black/5" : "bg-[#141414]/5"
+                  }`}
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Users className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+                  <Users
+                    className={`w-8 h-8 sm:w-10 sm:h-10 ${
+                      theme === "light" ? "text-foreground" : "text-white"
+                    }`}
+                  />
                 </motion.div>
-                <h3 className="text-lg sm:text-xl font-medium mb-1 text-white">
+                <h3
+                  className={`text-lg sm:text-xl font-medium mb-1 ${
+                    theme === "light" ? "text-foreground" : "text-white"
+                  }`}
+                >
                   {member.name}
                 </h3>
-                <p className="text-sm text-white/60">{member.title}</p>
+                <p
+                  className={`text-sm ${
+                    theme === "light" ? "text-foreground/70" : "text-white/60"
+                  }`}
+                >
+                  {member.title}
+                </p>
               </motion.div>
             ))}
           </motion.div>
@@ -538,11 +714,12 @@ export default function Home() {
       </Section>
 
       <motion.footer
-        className="border-t border-foreground/10 py-16 px-8 relative z-10"
+        className="relative z-10 border-t border-foreground/15 bg-background/60 backdrop-blur-md py-14 px-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5 }}
       >
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-foreground/5 to-transparent" />
         <div className="max-w-5xl mx-auto text-center text-foreground/70">
           <p className="text-xl">
             &copy; 2026 FOSS Hack Delhi-NCR. All rights reserved.
