@@ -31,10 +31,11 @@ export function CountdownTimer() {
           seconds: Math.floor((difference / 1000) % 60),
         });
       }
-    };
-    else {
+      else {
       setTimeLeft({days: 0, hours: 0, minutes: 0, seconds: 0 });
     }
+    };
+
 
     calculateTimeLeft();
     const timer = setInterval(calculateTimeLeft, 1000);
