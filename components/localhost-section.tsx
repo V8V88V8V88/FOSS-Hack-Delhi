@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import Image from "next/image"
-import { MapPin, X } from "lucide-react"
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import { MapPin, X } from "lucide-react";
 
 export function LocalhostSection() {
-  const [isEnlarged, setIsEnlarged] = useState(false)
+  const [isEnlarged, setIsEnlarged] = useState(false);
 
   return (
     <div className="relative w-full max-w-6xl mx-auto px-8">
@@ -19,14 +19,16 @@ export function LocalhostSection() {
           className="relative z-10"
         >
           <div className="flex items-center gap-3 mb-4">
-            <MapPin className="w-8 h-8 text-[#1a1a1a]" />
-            <h2 className="text-5xl font-bold text-[#1a1a1a]">Localhost: Delhi</h2>
+            <MapPin className="w-8 h-8 " />
+            <h2 className="text-5xl font-bold ">Localhost: Delhi</h2>
           </div>
           <div className="space-y-4">
-            <p className="text-2xl font-semibold text-[#1a1a1a]/80">Delhi Technical Campus</p>
-            <p className="text-xl text-[#1a1a1a]/60 leading-relaxed">
-              Join us at our vibrant venue where innovation meets collaboration. Located in the heart of Greater Noida,
-              Localhost provides the perfect save environment for hackers to create, collaborate, and innovate.
+            <p className="text-2xl font-semibold">Delhi Technical Campus</p>
+            <p className="text-xl leading-relaxed">
+              Join us at our vibrant venue where innovation meets collaboration.
+              Located in the heart of Greater Noida, Localhost provides the
+              perfect save environment for hackers to create, collaborate, and
+              innovate.
             </p>
             <motion.a
               href="https://maps.app.goo.gl/fi57g51gy84YohzP8"
@@ -60,7 +62,7 @@ export function LocalhostSection() {
                 repeat: Number.POSITIVE_INFINITY,
                 ease: "linear",
               }}
-              className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-full blur-3xl"
+              className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-full blur-3xl"
             />
           </div>
 
@@ -94,7 +96,7 @@ export function LocalhostSection() {
               repeat: Number.POSITIVE_INFINITY,
               ease: "easeInOut",
             }}
-            className="absolute -bottom-8 -right-8 w-24 h-24 bg-gradient-to-br from-green-400/20 to-blue-500/20 rounded-full blur-2xl"
+            className="absolute -bottom-8 -right-8 w-24 h-24 bg-gradient-to-br from-green-400/20 to-cyan-500/20 rounded-full blur-2xl"
           />
           <motion.div
             animate={{
@@ -127,12 +129,12 @@ export function LocalhostSection() {
               className="relative max-w-4xl w-full aspect-square"
               onClick={(e) => e.stopPropagation()}
             >
-<Image
-  src="/dtc.JPG"
-  alt="Delhi Technical Campus - Localhost Venue"
-  fill
-  className="object-cover rounded-lg"
-/>
+              <Image
+                src="/dtc.JPG"
+                alt="Delhi Technical Campus - Localhost Venue"
+                fill
+                className="object-cover rounded-lg"
+              />
 
               <button
                 onClick={() => setIsEnlarged(false)}
@@ -145,6 +147,5 @@ export function LocalhostSection() {
         )}
       </AnimatePresence>
     </div>
-  )
+  );
 }
-

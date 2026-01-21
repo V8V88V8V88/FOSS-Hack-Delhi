@@ -1,22 +1,27 @@
-"use client"
+"use client";
 
-import { useEffect, useMemo, useState } from "react"
-import { motion } from "framer-motion"
+import { useEffect, useMemo, useState } from "react";
+import { motion } from "framer-motion";
 
 interface TimeLeft {
-  days: number
-  hours: number
-  minutes: number
-  seconds: number
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
 }
 
 export function CountdownTimer() {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 })
-  const targetDate = useMemo(() => new Date("2025-02-22T08:00:00"), [])
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+  const targetDate = useMemo(() => new Date("2026-03-01T08:00:00"), []);
 
   useEffect(() => {
     const calculateTimeLeft = () => {
-      const difference = +targetDate - +new Date()
+      const difference = +targetDate - +new Date();
 
       if (difference > 0) {
         setTimeLeft({
@@ -24,30 +29,35 @@ export function CountdownTimer() {
           hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
           minutes: Math.floor((difference / 1000 / 60) % 60),
           seconds: Math.floor((difference / 1000) % 60),
-        })
+        });
       }
+    };
+    else {
+      setTimeLeft({days: 0, hours: 0, minutes: 0, seconds: 0 });
     }
 
-    calculateTimeLeft()
-    const timer = setInterval(calculateTimeLeft, 1000)
+    calculateTimeLeft();
+    const timer = setInterval(calculateTimeLeft, 1000);
 
-    return () => clearInterval(timer)
-  }, [targetDate]) // Added targetDate to dependencies
+    return () => clearInterval(timer);
+  }, [targetDate]); // Added targetDate to dependencies
 
   const timeBlocks = [
     { label: "Days", value: timeLeft.days },
     { label: "Hours", value: timeLeft.hours },
     { label: "Minutes", value: timeLeft.minutes },
     { label: "Seconds", value: timeLeft.seconds },
-  ]
+  ];
 
   return (
     <div className="relative">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-blue-500/5 rounded-3xl blur-3xl" />
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-cyan-500/5 rounded-3xl blur-3xl" />
 
-      <div className="relative bg-white/50 backdrop-blur-md rounded-3xl p-8 border border-white/10">
-        <h3 className="text-2xl font-semibold text-center mb-8 text-[#1a1a1a]">Hackathon Starts In</h3>
+      <div className="relative bg-white/50 backdrop-blur-md rounded-3xl p-8 border border-white/10 opacity-80">
+        <h3 className="text-2xl font-semibold text-center mb-8 text-[#1a1a1a]">
+          Hackathon Starts In
+        </h3>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {timeBlocks.map((block, index) => (
@@ -70,7 +80,9 @@ export function CountdownTimer() {
                     <span className="text-4xl md:text-5xl font-bold tabular-nums">
                       {block.value.toString().padStart(2, "0")}
                     </span>
-                    <span className="block text-xs md:text-sm mt-1 text-white/70">{block.label}</span>
+                    <span className="block text-xs md:text-sm mt-1 text-white/70">
+                      {block.label}
+                    </span>
                   </div>
                 </motion.div>
               </div>
@@ -87,6 +99,5 @@ export function CountdownTimer() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

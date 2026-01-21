@@ -1,15 +1,15 @@
-'use client'
+"use client";
 
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef, useState, useEffect } from 'react'
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 
 interface ShapeProps {
-  color: string
-  size: number
-  initialX: number
-  initialY: number
-  scrollMultiplier?: number
-  blur?: boolean
+  color: string;
+  size: number;
+  initialX: number;
+  initialY: number;
+  scrollMultiplier?: number;
+  blur?: boolean;
 }
 
 function useWindowSize() {
@@ -28,28 +28,39 @@ function useWindowSize() {
         height: window.innerHeight,
       });
     }
-    
+
     window.addEventListener("resize", handleResize);
     handleResize();
-    
+
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return windowSize;
 }
 
-const Shape = ({ color, size, initialX, initialY, scrollMultiplier = 1, blur = false }: ShapeProps) => {
-  const ref = useRef(null)
+const Shape = ({
+  color,
+  size,
+  initialX,
+  initialY,
+  scrollMultiplier = 1,
+  blur = false,
+}: ShapeProps) => {
+  const ref = useRef(null);
   const { scrollYProgress } = useScroll({
-    offset: ["start start", "end end"]
-  })
+    offset: ["start start", "end end"],
+  });
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, 300 * scrollMultiplier])
-  const x = useTransform(scrollYProgress, [0, 1], [0, 150 * scrollMultiplier])
-  const rotate = useTransform(scrollYProgress, [0, 1], [0, 180 * scrollMultiplier])
+  const y = useTransform(scrollYProgress, [0, 1], [0, 300 * scrollMultiplier]);
+  const x = useTransform(scrollYProgress, [0, 1], [0, 150 * scrollMultiplier]);
+  const rotate = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, 180 * scrollMultiplier],
+  );
 
-  const { width } = useWindowSize()
-  const responsiveSize = width ? (width / 1920) * size : size
+  const { width } = useWindowSize();
+  const responsiveSize = width ? (width / 1920) * size : size;
 
   return (
     <motion.div
@@ -66,18 +77,18 @@ const Shape = ({ color, size, initialX, initialY, scrollMultiplier = 1, blur = f
       animate={{ opacity: 0.2, scale: 1 }}
       transition={{ duration: 1.5 }}
     >
-      <div 
-        className={`${color} ${blur ? 'backdrop-blur-md' : ''}`}
-        style={{ 
-          width: responsiveSize, 
+      <div
+        className={`${color} ${blur ? "backdrop-blur-md" : ""}`}
+        style={{
+          width: responsiveSize,
           height: responsiveSize,
-          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-          filter: blur ? 'blur(4px)' : 'none',
+          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+          filter: blur ? "blur(4px)" : "none",
         }}
       />
     </motion.div>
-  )
-}
+  );
+};
 
 export const GeometricShapes = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -92,67 +103,66 @@ export const GeometricShapes = () => {
 
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden">
-      <Shape 
-        color="bg-[#4AE54A]/40" 
-        size={80} 
-        initialX={10} 
-        initialY={15} 
+      <Shape
+        color="bg-[#4AE54A]/40"
+        size={80}
+        initialX={10}
+        initialY={15}
         scrollMultiplier={1.2}
         blur
       />
-      <Shape 
-        color="bg-[#3B82F6]/40" 
-        size={60} 
-        initialX={85} 
-        initialY={25} 
+      <Shape
+        color="bg-[#3B82F6]/40"
+        size={60}
+        initialX={85}
+        initialY={25}
         scrollMultiplier={-0.8}
       />
-      <Shape 
-        color="bg-[#4AE54A]/40" 
-        size={70} 
-        initialX={75} 
-        initialY={45} 
+      <Shape
+        color="bg-[#4AE54A]/40"
+        size={70}
+        initialX={75}
+        initialY={45}
         scrollMultiplier={1.5}
         blur
       />
-      <Shape 
-        color="bg-[#3B82F6]/40" 
-        size={65} 
-        initialX={15} 
-        initialY={55} 
+      <Shape
+        color="bg-[#3B82F6]/40"
+        size={65}
+        initialX={15}
+        initialY={55}
         scrollMultiplier={-1.2}
       />
-      <Shape 
-        color="bg-[#4AE54A]/40" 
-        size={55} 
-        initialX={45} 
-        initialY={75} 
+      <Shape
+        color="bg-[#4AE54A]/40"
+        size={55}
+        initialX={45}
+        initialY={75}
         scrollMultiplier={0.9}
         blur
       />
-      <Shape 
-        color="bg-[#3B82F6]/40" 
-        size={75} 
-        initialX={65} 
-        initialY={85} 
+      <Shape
+        color="bg-[#3B82F6]/40"
+        size={75}
+        initialX={65}
+        initialY={85}
         scrollMultiplier={-1}
       />
-      <Shape 
-        color="bg-[#4AE54A]/40" 
-        size={45} 
-        initialX={25} 
-        initialY={35} 
+      <Shape
+        color="bg-[#4AE54A]/40"
+        size={45}
+        initialX={25}
+        initialY={35}
         scrollMultiplier={-0.7}
       />
-      <Shape 
-        color="bg-[#3B82F6]/40" 
-        size={50} 
-        initialX={92} 
-        initialY={65} 
+      <Shape
+        color="bg-[#3B82F6]/40"
+        size={50}
+        initialX={92}
+        initialY={65}
         scrollMultiplier={1.1}
         blur
       />
     </div>
-  )
-}
-
+  );
+};
